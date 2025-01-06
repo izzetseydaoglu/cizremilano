@@ -1,0 +1,11 @@
+npm install -g local-ssl-proxy
+brew install mkcert nss
+mkcert --install
+mkcert dev.davasis.com
+
+"scripts": {
+    "devSSL": "next dev -p 3400 & local-ssl-proxy --key ./-dev_cert/dev.davasis.com-key.pem --cert ./-dev_cert/dev.davasis.com.pem --source 443 --target 3400",
+}
+
+
+Edit your /etc/hosts file by adding this line so your computer knows your.domain.com points to localhost.
