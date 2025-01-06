@@ -3,12 +3,12 @@
  *  @author: izzetseydaoglu
  *  @last-modified: 29.01.2024 04:09
  */
-import React, {memo, ReactElement, useEffect} from "react";
+import {cloneElement, memo, ReactElement, useEffect} from "react";
 
 export type typeTooltipPosition = "top" | "bottom" | "left" | "right";
 
 interface Props {
-    children: ReactElement;
+    children: any;
     title: string;
     position?: typeTooltipPosition;
     arrow?: boolean;
@@ -128,7 +128,7 @@ export const Tooltip = memo(function MemoFunction({children, title, position = "
         }
     }
 
-    return React.cloneElement(children, {
+    return cloneElement(children, {
         onMouseEnter: tooltipEkle,
         onMouseLeave: tooltipSil,
         onMouseDown: tooltipSil,

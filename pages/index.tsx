@@ -8,7 +8,7 @@ import React from "react";
 import MobileMain from "@/pages_comp/_mobileMain/Main";
 
 
-export default function Index(props: any) {
+export default function Index() {
 
     return (
         <div>
