@@ -1,13 +1,5 @@
-/**
- * Copyright (c) 2024
- *  @author: izzetseydaoglu
- *  @last-modified: 8.04.2024 01:35
- */
-
-import styled from "styled-components";
-import React from "react";
-import {Icon} from "@/_lib/Icon";
-
+import { Icon } from '@sydsoft/base';
+import styled from 'styled-components';
 
 interface Props {
     beforeTitle?: string;
@@ -15,19 +7,19 @@ interface Props {
     onClick?: () => void;
 }
 
-export default function TitleMenu({beforeTitle, title, onClick}: Props) {
+export default function TitleMenu({ beforeTitle, title, onClick }: Props) {
     return (
         <Main>
-            <div className={"geri"} onClick={onClick}>
-                <Icon className={"btn"} iconMui={"chevron_left"}/> {beforeTitle}
+            <div className={'geri'} onClick={onClick}>
+                <Icon iconMui={'chevron_left'} fontSize={24} /> {beforeTitle}
             </div>
-            <div className={"altbaslik"}>{title}</div>
+            <div className={'altbaslik'}>{title}</div>
         </Main>
     );
 }
 
 const Main = styled.div`
-    position: relative;
+position: relative;
     width: 100%;
     margin-bottom: 10px;
     padding: 0 20px 0 20px;
@@ -36,10 +28,11 @@ const Main = styled.div`
     justify-content: flex-start;
     align-items: center;
     background: #1e2430;
-    border: 1px #ffffff45 solid;
+    border-bottom: 1px #00000057 solid;
     border-left: none;
     border-right: none;
-    color: #de641d;
+    color: #ece7e4;
+    margin-top: -10px;
 
     .geri {
         display: flex;
@@ -49,15 +42,15 @@ const Main = styled.div`
         font-size: 16px;
         font-weight: 500;
         cursor: pointer;
-
-        .btn {
-            font-size: 36px;
-        }
+        padding: 10px 10px 10px 0;
+        gap: 10px;
     }
 
     .altbaslik {
         font-size: 15px;
         font-weight: 500;
         margin-left: auto;
+        padding: 10px;
+        cursor: default;
     }
 `;

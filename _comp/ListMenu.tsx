@@ -1,58 +1,58 @@
-/**
- * Copyright (c) 2024
- *  @author: izzetseydaoglu
- *  @last-modified: 8.04.2024 01:35
- */
+import styled from 'styled-components';
 
-import styled from "styled-components";
-import React from "react";
-
-
+export type typeListMenu = {
+    id: string;
+    ustid: string;
+    title: string;
+    img?: string;
+    description?: string;
+    price?: number;
+    stock?: boolean;
+    time?: string;
+    onClick?: () => void;
+};
 interface Props {
-    List: {
-        name: string,
-        title: string,
-        img?: string,
-        description?: string,
-        price?: number,
-        stock?: boolean
-    }[]
+    list: typeListMenu[];
+    loading: boolean;
 }
 
-export default function UrunList({List}: Props) {
+export default function ListMenu({ list, loading }: Props) {
+    const LoadingComponent = () => {
+        return Array(5)
+            .fill(0)
+            .map((item, index) => (
+                <li key={index} className={'loading'}>
+                    <div className={'image'} />
+                    <div className={'detay'}>
+                        <span className={'line'} />
+                        <span className={'line'} />
+                        <span className={'line'} />
+                    </div>
+                </li>
+            ));
+    };
+
     return (
         <Menu>
-            {
-                List.map((item: any, index: number) => (
-                    <li key={index}>
-                        <div className={"image"}
-                             style={{
-                                 backgroundImage: `url(${item.img})`,
-                                 backgroundSize: "cover",
-                                 backgroundPosition: "center"
-                             }}
-                        />
-                        <div className={"detay"}>
-                            <span className={"baslik"}>{item.title}</span>
-                            {/*<span className={"aciklama"}>Peynir, organik taze domates ve salatalık, ceviz, kayısı kurusu, üzüm kurusu, soslu yeşil ve siyah zeytin, katkısız havuç reçeli, organik Karadeniz tereyağı ve balı, nutella, haşlanmış yada sahanda yumurta. Herhangi bir yiyeceğe alerjiniz varsa, lütfen sipariş vermeden önce servis personelini bilgilendiriniz.</span>*/}
-                            {/*<span className={"fiyat"}>210.00 TL</span>*/}
-                            {/*<span className={"stok"}>Stokta yok</span>*/}
-                        </div>
-                    </li>
-                ))
-            }
-            {
-                Array(3).fill(0).map((item, index) => (
-                    <li key={index} className={"loading"}>
-                        <div className={"image"}/>
-                        <div className={"detay"}>
-                            <span className={"line"}/>
-                            <span className={"line"}/>
-                            <span className={"line"}/>
-                        </div>
-                    </li>
-                ))
-            }
+            {list.map((item: typeListMenu, index: number) => (
+                <li key={index} onClick={item.onClick}>
+                    <div
+                        className={'image'}
+                        style={{
+                            backgroundImage: `url(${item.img})`,
+                            backgroundSize: 'cover',
+                            backgroundPosition: 'center'
+                        }}
+                    />
+                    <div className={'detay'}>
+                        <span className={'baslik'}>{item.title}</span>
+                        <span className={'fiyat'} hidden={!item.price}>
+                            {item.price} TL
+                        </span>
+                    </div>
+                </li>
+            ))}
+            {loading && <LoadingComponent />}
         </Menu>
     );
 }
@@ -69,10 +69,11 @@ const Menu = styled.ul`
     margin: 0;
 
     li {
-        width: 350px;
+        width: 85%;
         margin: 10px 5px;
         padding: 0;
-        background: #1e2430;
+        background-color: #1e2430;
+        background:linear-gradient(180deg, #1e2430, #040e1a, #021f27);
         cursor: pointer;
         transition: all 0.3s;
         border-radius: 10px;
@@ -83,7 +84,7 @@ const Menu = styled.ul`
         font-size: 13px;
         display: flex;
         justify-content: flex-start;
-        align-items: center;
+        align-items: stretch;
         gap: 10px;
         overflow: hidden;
 
@@ -91,9 +92,6 @@ const Menu = styled.ul`
             flex: 0 0 auto;
             width: 100px;
             height: 100px;
-            margin-right: 10px;
-            //border: 4px #ffffff54 solid;
-            //border-left: none;
         }
 
         .detay {
@@ -102,39 +100,28 @@ const Menu = styled.ul`
             flex-direction: column;
             justify-content: flex-start;
             align-items: flex-start;
-            gap: 5px;
-            padding: 10px;
+            align-self: stretch;
+            gap: 10px;
+            padding: 10px 10px 5px 5px;
 
             .baslik {
-                font-size: 16px;
+                font-size: 14px;
                 font-weight: 500;
-            }
-
-            .aciklama {
-                font-size: 13px;
-                font-weight: 300;
-                text-overflow: ellipsis;
-                white-space: nowrap;
-                overflow: hidden;
-                max-height: 40px;
-                line-height: 20px;
             }
 
             .fiyat {
-                font-size: 16px;
-                font-weight: 500;
-            }
-
-            .stok {
-                font-size: 13px;
-                font-weight: 300;
+                font-size: 12px;
+                font-weight: 400;
+                margin-top: auto;
+                align-self: flex-end;
+                padding: 2px 10px;
+                background: #2b3343;
+                border-radius: 10px;
             }
         }
     }
 
-
     li.loading {
-
         .image {
             background: #1c1e21;
         }
@@ -147,7 +134,6 @@ const Menu = styled.ul`
         }
 
         animation: loading 1.5s infinite;
-
     }
 
     @keyframes loading {

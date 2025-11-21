@@ -1,43 +1,37 @@
-/**
- * Copyright (c) 2024
- *  @author: izzetseydaoglu
- *  @last-modified: 8.04.2024 01:35
- */
-
-
 html,
 body,
 #__next {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  margin: 0;
-  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
-  font-size: 14px;
-  color: #1c1e21;
-  font-weight: 400;
-  line-height: 1.8rem;
-  scroll-behavior: smooth;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
+    font-size: 14px;
+    color: #1c1e21;
+    font-weight: 400;
+    line-height: 1.8rem;
+    scroll-behavior: smooth;
 }
 
 body {
-  display: block;
-  width: 100%;
-  height: 100%;
-  min-height: 100%;
-  /*background: #f0f2f5 url("/images/bg.jpeg") no-repeat center center fixed;*/
-  /*background-size: cover;*/
+    display: block;
+    width: 100%;
+    height: 100%;
+    min-height: 100%;
+    background: #151515;
+    /*background: #f0f2f5 url("/images/bg.jpeg") no-repeat center center fixed;*/
+    /*background-size: cover;*/
 }
 
 a {
-  color: inherit;
-  text-decoration: none;
+    color: inherit;
+    text-decoration: none;
 }
 
 * {
-  box-sizing: border-box;
+    box-sizing: border-box;
 }
 
 p {
-  margin: 0;
+    margin: 0;
 }

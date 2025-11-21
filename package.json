@@ -1,31 +1,35 @@
 {
-  "name": "cizremilano",
-  "version": "0.1.0",
-  "private": true,
-  "scripts": {
-    "devSSL": "next dev --turbopack -p 3400 & local-ssl-proxy --key ./-dev_cert/dev.cizremilano.com-key.pem --cert ./-dev_cert/dev.cizremilano.com.pem --source 443 --target 3400",
-    "dev": "next dev --turbopack",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
-  },
-  "dependencies": {
-    "@reduxjs/toolkit": "^2.5.0",
-    "html-react-parser": "^5.2.2",
-    "next": "15.1.3",
-    "next-redux-wrapper": "^8.1.0",
-    "react": "^19.0.0",
-    "react-dom": "^19.0.0",
-    "react-redux": "^9.2.0",
-    "styled-components": "^6.1.13"
-  },
-  "devDependencies": {
-    "@eslint/eslintrc": "^3",
-    "@types/node": "^20",
-    "@types/react": "^19",
-    "@types/react-dom": "^19",
-    "eslint": "^9",
-    "eslint-config-next": "15.1.3",
-    "typescript": "^5"
-  }
+    "name": "qrmenu-sydsoft",
+    "version": "0.1.0",
+    "private": true,
+    "scripts": {
+        "devSite": "rm -rf .next && next dev -p 3001 & local-ssl-proxy --key -dev_cert/dev.cizremilano.com-key.pem --cert -dev_cert/dev.cizremilano.com.pem --source 443 --target 3001",
+        "dev": "next dev",
+        "testExport": "php -S localhost:8000 -t out",
+        "build": "next build",
+        "buildTest": "next build &&  npm run testExport",
+        "start": "next start",
+        "lint": "eslint"
+    },
+    "dependencies": {
+        "@reduxjs/toolkit": "^2.9.1",
+        "@sydsoft/base": "^1.44.0",
+        "axios": "^1.13.2",
+        "next": "15.5.6",
+        "react": "19.1.0",
+        "react-dom": "19.1.0",
+        "react-redux": "^9.2.0",
+        "styled-components": "^6.1.19"
+    },
+    "devDependencies": {
+        "@eslint/eslintrc": "^3",
+        "@types/node": "^20",
+        "@types/react": "^19",
+        "@types/react-dom": "^19",
+        "eslint": "^9",
+        "eslint-config-next": "15.5.6",
+        "javascript-obfuscator": "^4.1.1",
+        "typescript": "^5",
+        "webpack-obfuscator": "^3.5.1"
+    }
 }
