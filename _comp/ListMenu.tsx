@@ -41,6 +41,18 @@ export default function UrunList({List}: Props) {
                     </li>
                 ))
             }
+            {
+                Array(3).fill(0).map((item, index) => (
+                    <li key={index} className={"loading"}>
+                        <div className={"image"}/>
+                        <div className={"detay"}>
+                            <span className={"line"}/>
+                            <span className={"line"}/>
+                            <span className={"line"}/>
+                        </div>
+                    </li>
+                ))
+            }
         </Menu>
     );
 }
@@ -117,6 +129,36 @@ const Menu = styled.ul`
                 font-size: 13px;
                 font-weight: 300;
             }
+        }
+    }
+
+
+    li.loading {
+
+        .image {
+            background: #1c1e21;
+        }
+
+        .line {
+            width: 100%;
+            height: 20px;
+            background: #1c1e21;
+            margin: 5px 0;
+        }
+
+        animation: loading 1.5s infinite;
+
+    }
+
+    @keyframes loading {
+        0% {
+            opacity: 0.5;
+        }
+        50% {
+            opacity: 1;
+        }
+        100% {
+            opacity: 0.5;
         }
     }
 `;
