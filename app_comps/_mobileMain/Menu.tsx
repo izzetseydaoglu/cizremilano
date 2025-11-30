@@ -2,9 +2,14 @@ import { actionSetAcikSayfa, actionSetKategori, useSite } from '@/_redux/site';
 
 import { Icon } from '@sydsoft/base';
 import styled from 'styled-components';
+import { useMemo } from 'react';
 
 export default function IndexMenu() {
     const { anaKategoriler, config } = useSite();
+    const orderedCategories = useMemo(
+        () => [...anaKategoriler].sort((a, b) => (a.sira || 0) - (b.sira || 0)),
+        [anaKategoriler]
+    );
 
     const handleWhatsappReservation = () => {
         if (!config.telefon) return;
@@ -17,11 +22,11 @@ export default function IndexMenu() {
     return (
         <Main>
             <Menu>
-                {anaKategoriler.map((item, index) => {
-                    const { id, baslik, resim } = item;
+                {orderedCategories.map((item, index) => {
+                    const { id, baslik, icon } = item;
                     return (
                         <li key={index} className={'link'} onClick={() => actionSetKategori(id, baslik)}>
-                            <Icon className={'icon'} iconMui={resim as any} />
+                            <Icon className={'icon'} iconMui={(icon || 'widgets') as any} />
                             <span className={'title'}>{baslik}</span>
                         </li>
                     );
@@ -31,7 +36,7 @@ export default function IndexMenu() {
                     <Icon className={'icon'} iconMui="games" />
                     <span className={'title'}>e-YAZBOZ</span>
                 </li> */}
-                <div className={'ayrac'}></div>
+                {/* <div className={'ayrac'}></div> */}
                 {config.telefon && (
                     <a className={'link'} href={handleWhatsappReservation()} rel="noopener noreferrer">
                         <Icon className={'icon'} iconMui="calendar_today" />

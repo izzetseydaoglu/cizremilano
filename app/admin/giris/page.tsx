@@ -28,7 +28,7 @@ export default function PageLogin() {
     const [formDisabled, setFormDisabled] = useState<boolean>(!isDev);
     const [form, setForm] = useState<object | any>({
         email: 'admin@cizremilano.com',
-        sifre: 'Delil2525'
+        sifre: ''
     });
     const passwordRef = useRef<any>(null);
 
@@ -55,6 +55,7 @@ export default function PageLogin() {
         }).then((result: any) => {
             if (result['auth']) {
                 cerezKaydet(null, 'auth', result['auth']);
+                router.replace('/admin');
             } else {
                 passwordRef.current.select();
             }

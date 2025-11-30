@@ -1,17 +1,17 @@
 'use client';
 
 import ListMenu, { typeListMenu } from '@/_comp/ListMenu';
-import { imagesFolder, imagesOrtakFolder } from '@/_lib/_inc';
 import { actionSetAcikSayfa, useSite } from '@/_redux/site';
 import { useEffect, useMemo, useState } from 'react';
 
 import { FilterMenu } from '@/_comp/FilterMenu';
 import TitleMenu from '@/_comp/TitleMenu';
-import { apiList } from '@/_lib/_apiList';
-import { sydGet } from '@/_lib/sPostGet';
-import { alert_add } from '@sydsoft/base';
-import styled from 'styled-components';
 import UrunDetay from './UrunDetay';
+import { alert_add } from '@sydsoft/base';
+import { apiList } from '@/_lib/_apiList';
+import { imagesFolder } from '@/_lib/_inc';
+import styled from 'styled-components';
+import { sydGet } from '@/_lib/sPostGet';
 
 export default function Kategoriler() {
     const { acikKategori, config } = useSite();
@@ -51,9 +51,7 @@ export default function Kategoriler() {
                     const newList: typeListMenu[] = [];
                     result.urunlist.map((item: any) => {
                         let image = item.resim;
-                        if (image.startsWith('_ortak')) {
-                            image = imagesOrtakFolder + '/' + image;
-                        } else if (image == '') {
+                        if (image == '') {
                             image = imagesFolder + '/' + config.logo;
                         } else {
                             image = imagesFolder + '/' + image;

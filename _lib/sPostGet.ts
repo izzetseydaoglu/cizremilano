@@ -112,7 +112,7 @@ export async function sydSSRGet({ context, url, target, params = {}, cancelToken
 
 function checkResponse(response: any) {
     if (response.data['forcelogin'] && typeof window !== undefined) {
-        window.location.href = '/oturum';
+        window.location.href = '/admin/giris';
         return;
     }
     alertCheck(response);

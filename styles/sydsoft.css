@@ -1,0 +1,68 @@
+.sbox {
+    background: rgba(3, 18, 27, 0.9) !important;
+    border: 1px solid rgba(202, 163, 61, 0.2) !important;
+    border-radius: 20px !important;
+    padding: 24px !important;
+    box-shadow: 0 18px 45px rgba(0, 0, 0, 0.45) !important;
+}
+
+.sbox_header {
+    font-size: 18px !important;
+    font-weight: 600 !important;
+    color: #ffdd57 !important;
+    border-bottom: 1px solid rgba(202, 163, 61, 0.2) !important;
+}
+.sbox_content {
+    font-size: 14px !important;
+    color: #e0e0e0 !important;
+    margin-bottom: 16px !important;
+}
+.sbox_footer {
+    font-size: 12px !important;
+    color: #a0a0a0 !important;
+    border-top: 1px solid rgba(202, 163, 61, 0.2) !important;
+    padding-top: 12px !important;
+    text-align: right !important;
+    background-color: transparent !important;
+}
+
+.smodal .sbox {
+    background: #03131c !important;
+}
+
+.smodal .close div {
+    color: #ffdd57 !important;
+    background: transparent !important;
+}
+
+.sInputComponent {
+    background: rgba(255, 255, 255, 0.05) !important;
+    border: 1px solid rgba(202, 163, 61, 0.2) !important;
+    border-radius: 10px !important;
+    color: #e0e0e0 !important;
+}
+
+.sInputComponent .label {
+    color: #ffdd57 !important;
+    background: transparent !important;
+}
+
+.sbutton.adminbtn {
+    width: 100%;
+    border: none;
+    border-radius: 14px;
+    padding: 14px 18px;
+    font-size: 15px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    cursor: pointer;
+    color: #02131b;
+    background: linear-gradient(90deg, #e7c86f 0%, #caa33d 100%);
+    box-shadow: 0 14px 25px rgba(202, 163, 61, 0.25);
+    transition: transform 0.2s ease;
+
+    &:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 18px 30px rgba(202, 163, 61, 0.35);
+    }
+}

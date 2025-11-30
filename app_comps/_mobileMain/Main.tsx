@@ -24,8 +24,16 @@ export default function MobileMain() {
                     actionSetConfig(result.config);
                     window.document.title = result.config.baslik || 'sydSOFT Bilişim Hizmetleri';
                 }
-                if (result?.anakategoriler) {
-                    actionSetAnaKategoriler(result.anakategoriler);
+                if (Array.isArray(result?.anakategoriler)) {
+                    const normalizedCategories = result.anakategoriler
+                        .map((item: any, index: number) => ({
+                            id: item.id ?? index,
+                            baslik: item.baslik ?? 'Kategori',
+                            icon: (item.resim ?? 'widgets') as string,
+                            sira: Number(item.sira ?? item.sirasi ?? index + 1)
+                        }))
+                        .sort((a: any, b: any) => (a.sira || 0) - (b.sira || 0));
+                    actionSetAnaKategoriler(normalizedCategories);
                 }
             })
             .catch(() => {

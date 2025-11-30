@@ -8,7 +8,7 @@ export type typeReduxSiteProps = {
     description: string;
     acikSayfa?: 'kategoriler' | 'yazboz' | 'contact'  | null;
     acikKategori?: { id: string | number; title: string } | null;
-    anaKategoriler: Array<{ id: string | number; baslik: string; resim: string }>;
+    anaKategoriler: Array<{ id: string | number; baslik: string; icon: string; sira: number }>;
     config: {
         baslik: string;
         logo: string;
