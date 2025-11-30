@@ -10,8 +10,8 @@ const nextConfig: NextConfig = {
     images: {
         unoptimized: true // next/image hatası almamak için
     },
-    // assetPrefix: isProd ? deploymentPath : undefined,
-    // basePath: isProd ? deploymentPath : undefined,
+    assetPrefix: isProd ? deploymentPath : undefined,
+    basePath: isProd ? deploymentPath : undefined,
     trailingSlash: true, // her sayfa / ile bitsin (dosya sistemi için güvenli)
     // Static HTML export ayarları sonu
 
@@ -20,6 +20,9 @@ const nextConfig: NextConfig = {
     env: {
         // NEXT_PUBLIC_ ile başlayan değişkenler client tarafında da erişilebilir
         DEVKEY: 'qrmenusistemidevkey.',
+        GOOGLEANALYTICS: 'G-WX09GT859K',
+        NEXT_PUBLIC_GOOGLE_API_KEY: 'AIzaSyANZ2JSpDv7ibLKSZDROtIJ4j0KDOUrXV8',
+        NEXT_PUBLIC_GOOGLE_CLIENT_ID: '169966473024-u51dtev7ao0u198s8h93c31hre2806ot.apps.googleusercontent.com',
         NEXT_PUBLIC_BASE_PATH: isProd ? deploymentPath : ''
     },
     compiler: {
